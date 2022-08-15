@@ -1,4 +1,3 @@
-
 import 'package:adminfirebas/AppRouter/AppRouter.dart';
 import 'package:adminfirebas/data/auth_Helper.dart';
 import 'package:adminfirebas/data/fireStore_Helper.dart';
@@ -46,39 +45,42 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  signIn(String emailAddress, String password,BuildContext context) async {
-     if (Provider.of<AuthProvider>(context, listen: false)
-                            .loginkey
-                            .currentState!
-                            .validate()) {
-    UserCredential? user =
-        await AuthHelper.authHelper.signIn(emailAddress, password);
-    if (user != null) {
-      AppRoute.PushWithReplacementToWidget(const HomePage());
-      email.clear();
-      pass.clear();
-      error = "";
-      notifyListeners();
-    } else if (user == null) {
-      error = "Incorrect Email or Password ";
-      notifyListeners();
-    }
+  signIn(String emailAddress, String password, BuildContext context) async {
+    if (Provider.of<AuthProvider>(context, listen: false)
+        .loginkey
+        .currentState!
+        .validate()) {
+      UserCredential? user =
+          await AuthHelper.authHelper.signIn(emailAddress, password);
+      if (user != null) {
+        AppRoute.PushWithReplacementToWidget(const HomePage());
+        email.clear();
+        pass.clear();
+        error = "";
+        notifyListeners();
+      } else if (user == null) {
+        error = "Incorrect Email or Password ";
+        notifyListeners();
+      }
     }
   }
 
-  signUp(String emailAddress, String password) async {
-    UserCredential credential =
-        await AuthHelper.authHelper.signUp(emailAddress, password);
-    if (credential != null) {
-      AppRoute.PushWithReplacementToWidget(SuccessfulSignUp());
-      FireStoreHelper.firestore.addUserToFireBase(
-          username.text, credential.user!.email!, credential.user!.uid);
+  signUp(String emailAddress, String password,
+      GlobalKey<FormState> registerKey) async {
+    if (registerKey.currentState!.validate()) {
+      UserCredential credential =
+          await AuthHelper.authHelper.signUp(emailAddress, password);
+      if (credential != null) {
+        AppRoute.PushWithReplacementToWidget(SuccessfulSignUp());
+        FireStoreHelper.firestore.addUserToFireBase(
+            username.text, credential.user!.email!, credential.user!.uid);
+      }
+      confirmpassword.clear();
+      email.clear();
+      pass.clear();
+      username.clear();
+      notifyListeners();
     }
-    confirmpassword.clear();
-    email.clear();
-    pass.clear();
-    username.clear();
-    notifyListeners();
   }
 
   checkUser() async {
@@ -88,7 +90,7 @@ class AuthProvider extends ChangeNotifier {
 
   signOut() async {
     await AuthHelper.authHelper.signOut();
-    // AppRoute.PushWithReplacementToWidget(LoginScreen());
+    AppRoute.PushWithReplacementToWidget(LoginScreen());
     notifyListeners();
   }
 

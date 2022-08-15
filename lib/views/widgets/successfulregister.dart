@@ -1,4 +1,3 @@
-
 import 'package:adminfirebas/AppRouter/AppRouter.dart';
 import 'package:adminfirebas/views/screens/LoginScreen.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +14,14 @@ class SuccessfulSignUp extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(children: [
-          SizedBox(height: 300.h,),
-          Image.asset("assets/images/success.png",width: 40,height: 40,),
+          SizedBox(
+            height: 300.h,
+          ),
+          Image.asset(
+            "assets/images/success.png",
+            width: 40,
+            height: 40,
+          ),
           Text(
             "Successful!",
             style: GoogleFonts.poppins(
@@ -25,7 +30,8 @@ class SuccessfulSignUp extends StatelessWidget {
           Container(
             width: 280.w,
             child: Text(
-                "you have successfully registered in our app and start working in it.",textAlign: TextAlign.center,
+                "you have successfully registered in our app, please verify your email.",
+                textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   fontSize: 15.sp,
                   color: Colors.grey,

@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:adminfirebas/AppRouter/AppRouter.dart';
 import 'package:adminfirebas/data/auth_Helper.dart';
+import 'package:adminfirebas/providers/authProvider.dart';
 import 'package:adminfirebas/providers/fireStoreProvider.dart';
 import 'package:adminfirebas/views/screens/AddNewCategory.dart';
 import 'package:adminfirebas/views/widgets/CategoryWidget.dart';
@@ -27,7 +28,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           ElevatedButton(
               onPressed: () async {
-                await Provider.of<AuthHelper>(context).signOut();
+                await Provider.of<AuthProvider>(context, listen: false)
+                    .signOut();
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
@@ -45,8 +47,8 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       bottomNavigationBar: Container(
-        decoration:const  BoxDecoration(
-         borderRadius: BorderRadius.only(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30)),
           color: Colors.black,
         ),
@@ -80,16 +82,16 @@ class _HomePageState extends State<HomePage> {
                 gap: 8,
                 text: "Home",
               ),
-              GButton(
-                icon: Icons.shopping_cart,
-                gap: 8,
-                text: "cart",
-              ),
-              GButton(
-                icon: Icons.notifications,
-                gap: 8,
-                text: "Notification",
-              ),
+              // GButton(
+              //   icon: Icons.shopping_cart,
+              //   gap: 8,
+              //   text: "cart",
+              // ),
+              // GButton(
+              //   icon: Icons.notifications,
+              //   gap: 8,
+              //   text: "Notification",
+              // ),
               GButton(
                 icon: Icons.person,
                 gap: 8,
@@ -107,7 +109,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Container(
-                    // padding: EdgeInsets.only(bottom: 30.h),
+                      // padding: EdgeInsets.only(bottom: 30.h),
                       height: 559.h,
                       child: Provider.of<FireStoreProvider>(context)
                                   .categories ==

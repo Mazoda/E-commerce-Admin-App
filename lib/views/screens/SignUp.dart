@@ -236,18 +236,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 50.h,
                   child: ElevatedButton(
                       onPressed: () async {
-                        if (Provider.of<AuthProvider>(context, listen: false)
-                            .registerKey
-                            .currentState!
-                            .validate()) {
-                          Provider.of<AuthProvider>(context,listen: false).signUp(
-                              Provider.of<AuthProvider>(context, listen: false)
-                                  .email
-                                  .text,
-                              Provider.of<AuthProvider>(context, listen: false)
-                                  .pass
-                                  .text);
-                        }
+                        Provider.of<AuthProvider>(context, listen: false)
+                            .signUp(
+                                Provider.of<AuthProvider>(context,
+                                        listen: false)
+                                    .email
+                                    .text,
+                                Provider.of<AuthProvider>(context,
+                                        listen: false)
+                                    .pass
+                                    .text,
+                                Provider.of<AuthProvider>(context,
+                                        listen: false)
+                                    .registerKey);
                       },
                       style: ButtonStyle(
                           backgroundColor:
