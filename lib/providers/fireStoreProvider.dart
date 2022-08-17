@@ -127,7 +127,7 @@ class FireStoreProvider extends ChangeNotifier {
 
   getAllProducts(Category category) async {
     products = await FireStoreHelper.firestore.getAllProducts(category.catId);
-    AppRoute.PushToWidget(ProductsScreen(products!, category));
+    AppRoute.PushWithReplacementToWidget(ProductsScreen(products!, category));
     notifyListeners();
   }
 
@@ -160,15 +160,16 @@ class FireStoreProvider extends ChangeNotifier {
             .addNewProduct(product, category.catId);
         products!.add(NewProduct);
       }
+
+      AppRoute.PushWithReplacementToWidget(
+          SuccessfulPro("you have successfully Added a Product",category));
       producttypeControllor.clear();
       productNameControllor.clear();
       productDesControllor.clear();
       productPriceControllor.clear();
       productQuantitiyControllor.clear();
       selectedImage = null;
-      AppRoute.PushToWidget(
-          SuccessfulPro("you have successfully Added a Product"));
-      getAllProducts(category);
+
       notifyListeners();
     }
   }
@@ -191,15 +192,15 @@ class FireStoreProvider extends ChangeNotifier {
     await FireStoreHelper.firestore.updateProduct(newproduct, category.catId);
 
     selectedImage = null;
-    AppRoute.PushToWidget(
-        SuccessfulPro("you have successfully Updated a Prodcut"));
+    AppRoute.PushWithReplacementToWidget(
+        SuccessfulPro("you have successfully Updated a Prodcut",category));
     producttypeControllor.clear();
     productNameControllor.clear();
     productDesControllor.clear();
     productPriceControllor.clear();
     productQuantitiyControllor.clear();
 
-    getAllProducts(category);
+    // getAllProducts(category);
     notifyListeners();
   }
 
@@ -215,6 +216,7 @@ class FireStoreProvider extends ChangeNotifier {
 
   deleteProduct(Product product, Category category) async {
     await FireStoreHelper.firestore.deleteProduct(product, category.catId);
+
     getAllProducts(category);
     notifyListeners();
   }

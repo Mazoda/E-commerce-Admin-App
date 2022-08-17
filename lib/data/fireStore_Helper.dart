@@ -53,6 +53,10 @@ class FireStoreHelper {
   }
 
   deleteCategory(Category category) async {
+    await FirebaseFirestore.instance
+            .collection("category")
+            .doc(category.catId)
+            .collection("products").doc().delete();
     await catigoriesColletionRef.doc(category.catId).delete();
   }
 
@@ -60,14 +64,15 @@ class FireStoreHelper {
     await catigoriesColletionRef.doc(category.catId).update(category.toMap());
   }
 
-  Future<Product>addNewProduct(Product product, String catId)async {
-  DocumentReference<Map<String, dynamic>> document =await  FirebaseFirestore.instance
+  Future<Product> addNewProduct(Product product, String catId) async {
+    DocumentReference<Map<String, dynamic>> document = await FirebaseFirestore
+        .instance
         .collection("category")
         .doc(catId)
         .collection("products")
         .add(product.toMap());
-        product.id=document.id;
-        return product;
+    product.id = document.id;
+    return product;
   }
 
   Future<List<Product>> getAllProducts(String catID) async {
@@ -85,8 +90,8 @@ class FireStoreHelper {
     return products;
   }
 
-  deleteProduct(Product product,String catID) async{
-        await FirebaseFirestore.instance
+  deleteProduct(Product product, String catID) async {
+    await FirebaseFirestore.instance
         .collection("category")
         .doc(catID)
         .collection("products")

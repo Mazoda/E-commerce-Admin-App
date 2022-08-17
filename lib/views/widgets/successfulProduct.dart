@@ -1,4 +1,6 @@
 import 'package:adminfirebas/AppRouter/AppRouter.dart';
+import 'package:adminfirebas/models/Category.dart';
+import 'package:adminfirebas/providers/fireStoreProvider.dart';
 import 'package:adminfirebas/views/screens/HomePageScreen.dart';
 import 'package:adminfirebas/views/screens/LoginScreen.dart';
 import 'package:adminfirebas/views/screens/ProdcutsScreen.dart';
@@ -7,11 +9,13 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SuccessfulPro extends StatelessWidget {
   String title;
+  Category category;
 
-  SuccessfulPro(this.title);
+  SuccessfulPro(this.title, this.category);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,8 @@ class SuccessfulPro extends StatelessWidget {
             height: 50.h,
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Provider.of<FireStoreProvider>(context,listen: false)
+                      .getAllProducts(category);
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black),

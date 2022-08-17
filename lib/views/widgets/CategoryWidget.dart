@@ -85,12 +85,12 @@ class CatWidget extends StatelessWidget {
                     children: [
                       Container(
                         margin: index % 2 == 0
-                            ? EdgeInsets.only(top: 40.h, left: 20.w)
-                            : EdgeInsets.only(top: 40.h, right: 20.w),
+                            ? EdgeInsets.only(top: 50.h, left: 20.w)
+                            : EdgeInsets.only(top: 50.h, right: 20.w),
                         child: Text(category.name,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
-                              fontSize: 30.sp,
+                              fontSize: 40.sp,
                               fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 0, 0, 0),
                             )),

@@ -36,7 +36,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   color: Colors.white,
                   fontWeight: FontWeight.bold)),
         ),
-        // automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false,
         centerTitle: true,
       ),
       // bottomNavigationBar: Container(
@@ -83,7 +83,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         child: Column(
           children: [
             Container(
-                height: 650.h,
+                height: 780.h,
                 child: Provider.of<FireStoreProvider>(context).products == null
                     ? Lottie.asset('assets/images/empty.json')
                     : GridView.count(
@@ -98,33 +98,38 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                       AppRoute.PushToWidget(
                                           addNewProduct(widget.category));
                                     },
-                                    child: Container(
-                                      width: 200.w,
-                                      height: 200.h,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                            width: 2, color: Colors.black),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.add_box_rounded),
-                                          Text("Add Product",
-                                              textAlign: TextAlign.center,
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 20.sp,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 0, 0, 0),
-                                              )),
-                                        ],
-                                      ),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.only(top: 8),
+                                          width: 200.w,
+                                          height: 200.h,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(15),
+                                            border: Border.all(
+                                                width: 2, color: Colors.black),
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(Icons.add_box_rounded),
+                                              Text("Add Product",
+                                                  textAlign: TextAlign.center,
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 20.sp,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(
+                                                        255, 0, 0, 0),
+                                                  )),
+                                            ],
+                                          ),
+                                        ),SizedBox(height:88.h ,)
+                                      ],
                                     ),
                                   )
                                 : ProductWidget(
-                                    widget.products[index], widget.category)))
+                                    widget.products[index], widget.category)).reversed.toList()  )
 
                 // GridView.builder(
                 //     itemCount: widget.products.length,
@@ -148,29 +153,29 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 //           index);
                 //     })
                 ),
-            SizedBox(height: 30.h),
-            SizedBox(
-              width: 350.w,
-              height: 80.h,
-              child: ElevatedButton(
-                  onPressed: () {
-                    // print(Provider.of<FireStoreProvider>(context,
-                    //         listen: false)
-                    //     .categories);
-                    AppRoute.PushToWidget(addNewProduct(widget.category));
-                  },
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black),
-                      shape: MaterialStateProperty.all(StadiumBorder())),
-                  child: Text(
-                    "Add New Product",
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            fontSize: 20.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold)),
-                  )),
-            ),
+            SizedBox(height: 0.h),
+            // SizedBox(
+            //   width: 350.w,
+            //   height: 80.h,
+            //   child: ElevatedButton(
+            //       onPressed: () {
+            //         // print(Provider.of<FireStoreProvider>(context,
+            //         //         listen: false)
+            //         //     .categories);
+            //         AppRoute.PushToWidget(addNewProduct(widget.category));
+            //       },
+            //       style: ButtonStyle(
+            //           backgroundColor: MaterialStateProperty.all(Colors.black),
+            //           shape: MaterialStateProperty.all(StadiumBorder())),
+            //       child: Text(
+            //         "Add New Product",
+            //         style: GoogleFonts.poppins(
+            //             textStyle: TextStyle(
+            //                 fontSize: 20.sp,
+            //                 color: Colors.white,
+            //                 fontWeight: FontWeight.bold)),
+            //       )),
+            // ),
           ],
         ),
       ),

@@ -34,7 +34,9 @@ class _FullProductState extends State<FullProduct> {
               },
               child: Container(
                 child: Icon(Icons.arrow_circle_left_outlined),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(300),color: Colors.black),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(300),
+                    color: Colors.black),
               )),
           // automaticallyImplyLeading: false,
           centerTitle: true,
@@ -66,12 +68,12 @@ class _FullProductState extends State<FullProduct> {
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
                 ),
               ),
               child: Container(
-                margin: EdgeInsets.only(left: 15.w, top: 15.h, right: 15.w),
+                margin: EdgeInsets.only(left: 25.w, top: 20.h, right: 15.w),
                 child: Column(
                   children: [
                     Row(
@@ -79,18 +81,25 @@ class _FullProductState extends State<FullProduct> {
                         Text(widget.product.name,
                             style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                    fontSize: 20.sp,
+                                    fontSize: 25.sp,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold))),
                         Spacer(),
-                        Text("Quantity: " + widget.product.quantity.toString(),
+                        Text("Quantity: ",
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontSize: 25.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold))),
+                        Text(widget.product.quantity.toString(),
                             style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                     fontSize: 20.sp,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.bold))),
+                                    // fontWeight: FontWeight.bold
+                                    ))),
                         SizedBox(
-                          width: 20.w,
+                          width: 15.w,
                         )
                       ],
                     ),
@@ -99,11 +108,11 @@ class _FullProductState extends State<FullProduct> {
                         child: Text(widget.product.type,
                             style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                              fontSize: 15.sp,
-                              color: Colors.black,
-                            )))),
+                                    fontSize: 15.sp,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold)))),
                     SizedBox(
-                      height: 10.h,
+                      height: 20.h,
                     ),
                     Align(
                         alignment: Alignment.centerLeft,
@@ -121,14 +130,14 @@ class _FullProductState extends State<FullProduct> {
                         child: Text(widget.product.description,
                             style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                              fontSize: 15.sp,
-                              color: Colors.black,
+                              fontSize: 18.sp,
+                              color: Colors.grey.shade400,
                             )))),
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(
                           color: Colors.black,
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(15)),
                       child: Row(
                         children: [
                           SizedBox(
@@ -136,7 +145,7 @@ class _FullProductState extends State<FullProduct> {
                           ),
                           Column(
                             children: [
-                              Text(" price",
+                              Text(" Price",
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                           fontSize: 20.sp,
@@ -144,9 +153,10 @@ class _FullProductState extends State<FullProduct> {
                               Text(" \$" + widget.product.price.toString(),
                                   style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
-                                          fontSize: 25.sp,
+                                          fontSize: 20.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold))),
+                                          SizedBox(height: 5.h,)
                             ],
                           ),
                           Spacer(),

@@ -36,6 +36,7 @@ class ProductWidget extends StatelessWidget {
                     onPressed: () {
                       Provider.of<FireStoreProvider>(context, listen: false)
                           .deleteProduct(product, category);
+                       
                     },
                     child: Text("Yes"),
                   ),
