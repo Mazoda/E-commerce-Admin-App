@@ -60,38 +60,13 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             tabBackgroundColor: Colors.grey.shade800,
             padding: EdgeInsets.all(8),
-            // onTabChange: (index) {
-            //   switch (index) {
-            //     case 0:
-            // AppRoute.PushToWidget(HomePage());
-            //       break;
-            //     case 1:
-            //       AppRoute.PushToWidget(widget);
-            //       break;
-            //     case 2:
-            //       AppRoute.PushToWidget(widget);
-            //       break;
-            //     case 3:
-            //       AppRoute.PushToWidget(widget);
-            //       break;
-            //   }
-            // },
+
             tabs: const [
               GButton(
                 icon: Icons.home,
                 gap: 8,
                 text: "Home",
               ),
-              // GButton(
-              //   icon: Icons.shopping_cart,
-              //   gap: 8,
-              //   text: "cart",
-              // ),
-              // GButton(
-              //   icon: Icons.notifications,
-              //   gap: 8,
-              //   text: "Notification",
-              // ),
               GButton(
                 icon: Icons.person,
                 gap: 8,

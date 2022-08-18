@@ -40,64 +40,9 @@ class _addNewProductState extends State<addNewProduct> {
                   color: Colors.white,
                   fontWeight: FontWeight.bold)),
         ),
-        // automaticallyImplyLeading: false,
         centerTitle: true,
       ),
-      // bottomNavigationBar: Container(
-      //   decoration: const BoxDecoration(
-      //     borderRadius: BorderRadius.only(
-      //         topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-      //     color: Colors.black,
-      //   ),
-      //   child: Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      //     child: GNav(
-      //       backgroundColor: Colors.black,
-      //       activeColor: Colors.white,
-      //       color: Colors.white,
-      //       tabBackgroundColor: Colors.grey.shade800,
-      //       padding: EdgeInsets.all(8),
-      //       // onTabChange: (index) {
-      //       //   switch (index) {
-      //       //     case 0:
-      //       //       AppRoute.PushToWidget(HomePage());
-      //       //       break;
-      //       //     case 1:
-      //       //       AppRoute.PushToWidget(widget);
-      //       //       break;
-      //       //     case 2:
-      //       //       AppRoute.PushToWidget(widget);
-      //       //       break;
-      //       //     case 3:
-      //       //       AppRoute.PushToWidget(widget);
-      //       //       break;
-      //       //   }
-      //       // },
-      //       tabs: const [
-      //         GButton(
-      //           icon: Icons.home,
-      //           gap: 8,
-      //           text: "Home",
-      //         ),
-      //         GButton(
-      //           icon: Icons.shopping_cart,
-      //           gap: 8,
-      //           text: "cart",
-      //         ),
-      //         GButton(
-      //           icon: Icons.notifications,
-      //           gap: 8,
-      //           text: "Notification",
-      //         ),
-      //         GButton(
-      //           icon: Icons.person,
-      //           gap: 8,
-      //           text: "Profile",
-      //         )
-      //       ],
-      //     ),
-      //   ),
-      // ),
+  
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Form(
@@ -210,13 +155,7 @@ class _addNewProductState extends State<addNewProduct> {
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.right,
                   ),
-                  // CustomTextfield(
-                  //     validator:
-                  //         Provider.of<FireStoreProvider>(context, listen: false)
-                  //             .desc,
-                  //     controller:
-                  //         Provider.of<FireStoreProvider>(context, listen: false)
-                  //             .productDesControllor),
+
                   TextFormField(
                     maxLines: 5,
                     validator:
@@ -306,13 +245,6 @@ class _addNewProductState extends State<addNewProduct> {
                   SizedBox(
                     height: 30.h,
                   ),
-
-                  // CustomTextfield(
-                  //     title: "Category Name",
-                  //     validator: Provider.of<AuthProvider>(context, listen: false)
-                  //         .userName,
-                  //     controller: Provider.of<AuthProvider>(context, listen: false)
-                  //         .username)
                 ],
               ),
             ),

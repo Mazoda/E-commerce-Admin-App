@@ -39,45 +39,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
         automaticallyImplyLeading: false,
         centerTitle: true,
       ),
-      // bottomNavigationBar: Container(
-      //   decoration: const BoxDecoration(
-      //     borderRadius: BorderRadius.only(
-      //         topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-      //     color: Colors.black,
-      //   ),
-      //   child: Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      //     child: GNav(
-      //       backgroundColor: Colors.black,
-      //       activeColor: Colors.white,
-      //       color: Colors.white,
-      //       tabBackgroundColor: Colors.grey.shade800,
-      //       padding: EdgeInsets.all(8),
-      //       tabs: const [
-      //         GButton(
-      //           icon: Icons.home,
-      //           gap: 8,
-      //           text: "Home",
-      //         ),
-      //         GButton(
-      //           icon: Icons.shopping_cart,
-      //           gap: 8,
-      //           text: "cart",
-      //         ),
-      //         GButton(
-      //           icon: Icons.notifications,
-      //           gap: 8,
-      //           text: "Notification",
-      //         ),
-      //         GButton(
-      //           icon: Icons.person,
-      //           gap: 8,
-      //           text: "Profile",
-      //         )
-      //       ],
-      //     ),
-      //   ),
-      // ),
       body: Container(
         margin: EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
         child: Column(
@@ -95,7 +56,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                             (index) => index == widget.products.length
                                 ? InkWell(
                                     onTap: () {
-                                      AppRoute.PushToWidget(
+                                      AppRoute.PushWithReplacementToWidget(
                                           addNewProduct(widget.category));
                                     },
                                     child: Column(
@@ -105,7 +66,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                           width: 200.w,
                                           height: 200.h,
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(15),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
                                             border: Border.all(
                                                 width: 2, color: Colors.black),
                                           ),
@@ -124,58 +86,16 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                                   )),
                                             ],
                                           ),
-                                        ),SizedBox(height:88.h ,)
+                                        ),
+                                        SizedBox(
+                                          height: 88.h,
+                                        )
                                       ],
                                     ),
                                   )
-                                : ProductWidget(
-                                    widget.products[index], widget.category)).reversed.toList()  )
-
-                // GridView.builder(
-                //     itemCount: widget.products.length,
-                //     gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                //       crossAxisCount: 2,mainAxisSpacing: 200
-                //     ),
-                //     itemBuilder: (BuildContext context, int index) {
-                //       return ProductWidget(
-                //           widget.products[index], widget.category);
-                //     },
-                //   ),
-
-                //  ListView.builder(
-                //     itemCount: Provider.of<FireStoreProvider>(context)
-                //         .categories!
-                //         .length,
-                //     itemBuilder: (context, index) {
-                //       return CatWidget(
-                //           Provider.of<FireStoreProvider>(context)
-                //               .categories![index],
-                //           index);
-                //     })
-                ),
+                                : ProductWidget(widget.products[index],
+                                    widget.category)).reversed.toList())),
             SizedBox(height: 0.h),
-            // SizedBox(
-            //   width: 350.w,
-            //   height: 80.h,
-            //   child: ElevatedButton(
-            //       onPressed: () {
-            //         // print(Provider.of<FireStoreProvider>(context,
-            //         //         listen: false)
-            //         //     .categories);
-            //         AppRoute.PushToWidget(addNewProduct(widget.category));
-            //       },
-            //       style: ButtonStyle(
-            //           backgroundColor: MaterialStateProperty.all(Colors.black),
-            //           shape: MaterialStateProperty.all(StadiumBorder())),
-            //       child: Text(
-            //         "Add New Product",
-            //         style: GoogleFonts.poppins(
-            //             textStyle: TextStyle(
-            //                 fontSize: 20.sp,
-            //                 color: Colors.white,
-            //                 fontWeight: FontWeight.bold)),
-            //       )),
-            // ),
           ],
         ),
       ),

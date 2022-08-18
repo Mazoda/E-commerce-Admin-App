@@ -42,61 +42,6 @@ class _AddCatState extends State<AddCat> {
         // automaticallyImplyLeading: false,
         centerTitle: true,
       ),
-      // bottomNavigationBar: Container(
-      //   decoration:const BoxDecoration(
-      //     borderRadius: BorderRadius.only(
-      //         topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-      //     color: Colors.black,
-      //   ),
-      //   child: Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      //     child: GNav(
-      //       backgroundColor: Colors.black,
-      //       activeColor: Colors.white,
-      //       color: Colors.white,
-      //       tabBackgroundColor: Colors.grey.shade800,
-      //       padding: EdgeInsets.all(8),
-      //       // onTabChange: (index) {
-      //       //   switch (index) {
-      //       //     case 0:
-      //       //       AppRoute.PushToWidget(HomePage());
-      //       //       break;
-      //       //     case 1:
-      //       //       AppRoute.PushToWidget(widget);
-      //       //       break;
-      //       //     case 2:
-      //       //       AppRoute.PushToWidget(widget);
-      //       //       break;
-      //       //     case 3:
-      //       //       AppRoute.PushToWidget(widget);
-      //       //       break;
-      //       //   }
-      //       // },
-      //       tabs: const [
-      //         GButton(
-      //           icon: Icons.home,
-      //           gap: 8,
-      //           text: "Home",
-      //         ),
-      //         GButton(
-      //           icon: Icons.shopping_cart,
-      //           gap: 8,
-      //           text: "cart",
-      //         ),
-      //         GButton(
-      //           icon: Icons.notifications,
-      //           gap: 8,
-      //           text: "Notification",
-      //         ),
-      //         GButton(
-      //           icon: Icons.person,
-      //           gap: 8,
-      //           text: "Profile",
-      //         )
-      //       ],
-      //     ),
-      //   ),
-      // ),
       body: Form(
         key: category,
         child: Center(
@@ -195,12 +140,6 @@ class _AddCatState extends State<AddCat> {
                                 fontWeight: FontWeight.bold)),
                       )),
                 ),
-                // CustomTextfield(
-                //     title: "Category Name",
-                //     validator: Provider.of<AuthProvider>(context, listen: false)
-                //         .userName,
-                //     controller: Provider.of<AuthProvider>(context, listen: false)
-                //         .username)
               ],
             ),
           ),

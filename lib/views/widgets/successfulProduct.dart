@@ -52,8 +52,8 @@ class SuccessfulPro extends StatelessWidget {
             height: 50.h,
             child: ElevatedButton(
                 onPressed: () {
-                  Provider.of<FireStoreProvider>(context,listen: false)
-                      .getAllProducts(category);
+                  Provider.of<FireStoreProvider>(context, listen: false)
+                      .getAllProductsFromAdd(category);
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black),

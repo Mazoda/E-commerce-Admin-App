@@ -48,7 +48,6 @@ class SuccessfulCat extends StatelessWidget {
             height: 50.h,
             child: ElevatedButton(
                 onPressed: () {
-          
                   AppRoute.PushWithReplacementToWidget(HomePage());
                 },
                 style: ButtonStyle(
