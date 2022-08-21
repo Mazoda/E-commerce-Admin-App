@@ -60,7 +60,6 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             tabBackgroundColor: Colors.grey.shade800,
             padding: EdgeInsets.all(8),
-
             tabs: const [
               GButton(
                 icon: Icons.home,
@@ -95,10 +94,13 @@ class _HomePageState extends State<HomePage> {
                                   .categories
                                   .length,
                               itemBuilder: (context, index) {
+                                
                                 return CatWidget(
+                                  
                                     Provider.of<FireStoreProvider>(context)
                                         .categories[index],
-                                    index);
+                                    index,
+                                    );
                               })),
                   SizedBox(
                     height: 20.h,

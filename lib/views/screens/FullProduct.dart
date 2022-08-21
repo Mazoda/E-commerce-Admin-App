@@ -85,19 +85,6 @@ class _FullProductState extends State<FullProduct> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold))),
                         Spacer(),
-                        Text("Quantity: ",
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    fontSize: 25.sp,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold))),
-                        Text(widget.product.quantity.toString(),
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    fontSize: 20.sp,
-                                    color: Colors.black,
-                                    // fontWeight: FontWeight.bold
-                                    ))),
                         SizedBox(
                           width: 15.w,
                         )
@@ -134,6 +121,18 @@ class _FullProductState extends State<FullProduct> {
                               color: Colors.grey.shade400,
                             )))),
                     Spacer(),
+                    Text("Quantity: ",
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                fontSize: 25.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))),
+                    Text(widget.product.quantity.toString(),
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                fontSize: 20.sp,
+                                color: Colors.grey.shade600,
+                                fontWeight: FontWeight.bold))),
                     Container(
                       decoration: BoxDecoration(
                           color: Colors.black,
@@ -156,7 +155,9 @@ class _FullProductState extends State<FullProduct> {
                                           fontSize: 20.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold))),
-                                          SizedBox(height: 5.h,)
+                              SizedBox(
+                                height: 5.h,
+                              )
                             ],
                           ),
                           Spacer(),

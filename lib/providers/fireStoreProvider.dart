@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:adminfirebas/AppRouter/AppRouter.dart';
 import 'package:adminfirebas/data/fireStore_Helper.dart';
@@ -26,7 +27,7 @@ class FireStoreProvider extends ChangeNotifier {
   List<Category> categories = [];
   List<Product>? products;
   File? selectedImage;
-
+  int counter = 0;
   insertCollection(String colName) async {
     await FireStoreHelper.firestore.insertCollection(colName);
   }
@@ -130,23 +131,19 @@ class FireStoreProvider extends ChangeNotifier {
     AppRoute.PushToWidget(ProductsScreen(products!, category));
     notifyListeners();
   }
-    getAllProductsFromAdd(Category category) async {
+
+  getAllProductsFromAdd(Category category) async {
     products = await FireStoreHelper.firestore.getAllProducts(category.catId);
     AppRoute.PushWithReplacementToWidget(ProductsScreen(products!, category));
     notifyListeners();
   }
 
   getProductsCount(Category category) async {
-    int count;
-    products = await FireStoreHelper.firestore.getAllProducts(category.catId);
+    List<Product> kpro =
+        await FireStoreHelper.firestore.getAllProducts(category.catId);
+        log("message");
+    if (kpro.length != null) counter = kpro.length;
     notifyListeners();
-
-    if (products == null) {
-      count = 0;
-    } else {
-      count = products!.length;
-    }
-    return count;
   }
 
   addNewProduct(Category category, GlobalKey<FormState> productKey) async {
@@ -167,7 +164,7 @@ class FireStoreProvider extends ChangeNotifier {
       }
 
       AppRoute.PushWithReplacementToWidget(
-          SuccessfulPro("you have successfully Added a Product",category));
+          SuccessfulPro("you have successfully Added a Product", category));
       producttypeControllor.clear();
       productNameControllor.clear();
       productDesControllor.clear();
@@ -198,7 +195,7 @@ class FireStoreProvider extends ChangeNotifier {
 
     selectedImage = null;
     AppRoute.PushWithReplacementToWidget(
-        SuccessfulPro("you have successfully Updated a Prodcut",category));
+        SuccessfulPro("you have successfully Updated a Prodcut", category));
     producttypeControllor.clear();
     productNameControllor.clear();
     productDesControllor.clear();
@@ -216,7 +213,8 @@ class FireStoreProvider extends ChangeNotifier {
     productQuantitiyControllor.text = product.quantity.toString();
     producttypeControllor.text = product.type;
     ;
-    AppRoute.PushWithReplacementToWidget(UpdateProductScreen(product, category));
+    AppRoute.PushWithReplacementToWidget(
+        UpdateProductScreen(product, category));
   }
 
   deleteProduct(Product product, Category category) async {

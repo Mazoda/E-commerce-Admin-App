@@ -40,6 +40,9 @@ class CatWidget extends StatelessWidget {
                   spacing: 10.h,
                   borderRadius: BorderRadius.circular(20),
                 ),
+                SizedBox(
+                  width: 5.w,
+                ),
                 SlidableAction(
                   onPressed: (context) {
                     Provider.of<FireStoreProvider>(context, listen: false)
@@ -47,12 +50,14 @@ class CatWidget extends StatelessWidget {
                         .text = category.name;
                     AppRoute.PushToWidget(UpdateCat(category));
                   },
-                  
                   backgroundColor: Color(0xFF21B7CA),
                   foregroundColor: Colors.white,
                   icon: Icons.replay_circle_filled_outlined,
                   borderRadius: BorderRadius.circular(20),
                   label: 'Update',
+                ),
+                SizedBox(
+                  width: 5.w,
                 ),
               ],
             ),
@@ -67,12 +72,6 @@ class CatWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(width: 2, color: Colors.black),
-                  // boxShadow: const [
-                  //   BoxShadow(
-                  //       spreadRadius: 3,
-                  //       blurRadius: 5,
-                  //       color: Color.fromARGB(255, 197, 196, 196))
-                  // ],
                   image: DecorationImage(
                       image: NetworkImage(category.imageUrl),
                       fit: BoxFit.cover),
@@ -90,24 +89,21 @@ class CatWidget extends StatelessWidget {
                         child: Text(category.name,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
-                              fontSize: 40.sp,
+                              fontSize: 35.sp,
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: Colors.white,
                             )),
                       ),
-                      // Container(
-                      //   margin: index % 2 == 0
-                      //       ? EdgeInsets.only(top: 5.h, left: 20.w)
-                      //       : EdgeInsets.only(top: 5.h, right: 20.w),
-                      //   child: Text(
-                      //       "${Provider.of<FireStoreProvider>(context).getProductsCount(category).toString()}",
-                      //       textAlign: TextAlign.center,
-                      //       style: GoogleFonts.poppins(
-                      //         fontSize: 15.sp,
-                      //         fontWeight: FontWeight.bold,
-                      //         color: Color.fromARGB(255, 0, 0, 0),
-                      //       )),
-                      // ),
+                      // Text(
+                      //     Provider.of<FireStoreProvider>(context, listen: false)
+                      //         .counter
+                      //         .toString()+" Products",
+                      //     textAlign: TextAlign.left,
+                      //     style: GoogleFonts.poppins(
+                      //       fontSize: 20.sp,
+                      //       fontWeight: FontWeight.bold,
+                      //       color: Colors.white,
+                      //     ))
                     ],
                   ),
                 ),
